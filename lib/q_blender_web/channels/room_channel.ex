@@ -2,16 +2,7 @@ defmodule QBlenderWeb.RoomChannel do
   use QBlenderWeb, :channel
 
   @impl true
-  def join("room_channel:wilton", payload, socket) do
-    if authorized?(payload) do
-      {:ok, socket}
-    else
-      {:error, %{reason: "unauthorized"}}
-    end
-  end
-  
-  @impl true
-  def join("room_channel:rafael", payload, socket) do
+  def join(_channel, payload, socket) do
     if authorized?(payload) do
       {:ok, socket}
     else
